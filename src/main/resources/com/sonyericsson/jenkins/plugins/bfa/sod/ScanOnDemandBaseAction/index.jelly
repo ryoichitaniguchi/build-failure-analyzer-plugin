@@ -50,27 +50,6 @@
                 </f:form>
                 <j:set var="scanTarget" value="${request.session.getAttribute('buildType')}"/>
                 <j:set var="scanBuilds" value="${it.getBuilds(scanTarget)}"/>
-                <j:if test="${empty(scanBuilds)}">
-                    <f:form method="get" action="performScan" name="config">
-                        <f:section title="${%No build found}">
-                            <f:block>
-                                <table width="100%" border="0" cellpadding="2" cellspacing="0"
-                                       class="pane bigtable"
-                                       style="margin-top: 0">
-                                    <tr>
-                                        <td/>
-                                        <td>
-                                            <b>
-                                                ${%No build found for scanning}
-                                            </b>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </f:block>
-                        </f:section>
-                    </f:form>
-                </j:if>
-                <j:if test="${!empty(scanBuilds)}">
                     <f:form method="get" action="performScan">
                         <f:section>
                             <f:block>
@@ -78,8 +57,7 @@
                             </f:block>
                         </f:section>
                     </f:form>
-                </j:if>
-            </l:main-panel>
+                </l:main-panel>
         </body>
     </l:layout>
 </j:jelly>
